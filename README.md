@@ -1,3 +1,5 @@
 # Jakub Hruška
-- Na sto propadnu bro
+- Na sto propadnu z programka bro
 - Jižní město resident
+  
+  

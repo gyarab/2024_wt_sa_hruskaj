@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pexeso</title>
+    <style>
+        #pexeso {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+        }
+
+        .karta {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .karta .front, .karta .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: transform 0.5s;
+        }
+
+        .karta .front {
+            background-color: #fff;
+            transform: rotateY(0deg);
+        }
+
+        .karta .back {
+            background-image: url('https://img.favpng.com/0/22/9/computer-icons-hockey-puck-png-favpng-Mzq2ibF0qGYDZuQnbe3Fgujgb.jpg');
+            background-size: cover;
+            transform: rotateY(180deg);
+        }
+
+        .karta.flipped .front {
+            transform: rotateY(180deg);
+        }
+
+        .karta.flipped .back {
+            transform: rotateY(0deg);
+        }
+
+        .karta.matched {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pexeso</h1>
+    <div id="pexeso"></div>
+
+    <script>
+        console.log('START');
+
+        let karty = [
+            { src: 'https://www.valmont.cz/wp-content/uploads/image-20.png' },
+            { src: 'https://www.snusdaddy.eu/media/catalog/product/cache/447b330ca14405401579b905e2f55a31/b/r/brutal_strawberry_860x860.png' },
+            { src: 'https://www.nicospouches.co.uk/cdn/shop/products/iceberg-watermelon-mint-150_1200x1200.png?v=1662453155' },
+            { src: 'https://vo.danczek.cz/media/99/e1/99e176da09c4cc11-1200-1200-w-60.webp' },
+            { src: 'https://nicotinos.com/cdn/shop/files/killa-strawberry-cheesecake_0d2f3bb3-e4f4-4f4f-8b39-d96711f3def2.png?v=1713259260' },
+            { src: 'https://www.snusexpress.com/media/mf_webp/png/media/catalog/product/cache/18e5ba4b8886a24535f7608095c21b4b/p/a/pablo_ice_cold_1_1.webp' },
+            { src: 'https://www.donpealo.cz/admin/photos/ModuleItem/3057/23436200.jpg' },
+            { src: 'https://cdn.myshoptet.com/usr/www.nikotinsacky.cz/user/front_images/ogImage/image_(1)-7.png' }
+        ];
+
+        let pole = [0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7];
+
+        pole = pole.sort(() => Math.random() - 0.5);
+
+        let el = document.getElementById('pexeso');
+
+        el.innerHTML = "";
+
+        let flippedCards = [];
+        let matchedPairs = 0;
+
+        pole.forEach((prvek, index) => {
+            const karta = document.createElement('div');
+            karta.classList.add('karta');
+            karta.dataset.index = index;
+            karta.dataset.type = prvek;
+
+            karta.innerHTML = `
+                <div class="front" style="background-image: url(${karty[prvek].src});"></div>
+                <div class="back"></div>
+            `;
+            
+            el.appendChild(karta);
+        });
+
+        el.addEventListener('click', (e) => {
+            const clickedCard = e.target.closest('.karta');
+            
+            if (!clickedCard || clickedCard.classList.contains('matched') || clickedCard.classList.contains('flipped')) {
+                return;
+            }
+            
+            clickedCard.classList.add('flipped');
+            flippedCards.push(clickedCard);
+            
+            if (flippedCards.length === 2) {
+                const [firstCard, secondCard] = flippedCards;
+                const isMatch = firstCard.dataset.type === secondCard.dataset.type;
+                
+                if (isMatch) {
+                    firstCard.classList.add('matched');
+                    secondCard.classList.add('matched');
+                    matchedPairs++;
+                } else {
+                    setTimeout(() => {
+                        firstCard.classList.remove('flipped');
+                        secondCard.classList.remove('flipped');
+                    }, 1000);
+                }
+                
+                flippedCards = [];
+            }
+        });
+
+        console.log('END');
+    </script>
+</body>
+</html>

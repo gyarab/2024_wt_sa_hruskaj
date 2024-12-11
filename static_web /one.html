@@ -1,34 +1,118 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KočkoholkyNaProdej</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script>
+      function akce() {
+        // alert('asdf')
+        let obr = document.getElementById('obr01')
+        console.log('-----======-----')
+        console.log(obr)
+        let src01 = "https://placecats.com/200/200"
+        let src02 = "https://placecats.com/neo/300/200"
+        if (obr.src === src02) {
+          obr.src = src01
+        }
+        else {
+          obr.src = src02
+        }
+
+      }
+    </script>
 </head>
 <body>
-    <h1>The Doors Debut Album</h1>
-    <h2>Song list:</h2>
-    <ul>
-        <li>Break on Through (To the Other Side)</li>
-        <li>Soul Kitchen</li>
-        <li>The Crystal Ship</li>
-        <li>Twentieth Centry Fox</li>
-        <li>Alabama Song (Whisky Bar)</li>
-        <li>Light My Fire</li>
-        <li>Back Door Man</li>
-        <li>I Looked at You</li>
-        <li>End of the Night</li>
-        <li>Take It as It Comes</li>
-        <li>The End</li>;
-    </ul>
-<a href="two.html">The Doors Second Album</a></body>
-<img src="C:\Users\jakub\Downloads\TheDoorsTheDoorsalbumcover.jpg" alt="The Doors Debut Album">
-<style>img{
-    width: 300px;
-    height: 300px;
-    }
-    </style>
+    <nav class="navbar navbar-expand-md bg-body-tertiary container-fluid">
+        <div class="container d-flex justify-content-between">
+            
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="./one.html">One</a>
+                    <a class="nav-link" href="./two.html">Two</a>
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+    <div class="container">
+        <h1>Kočkoholky na prodej</h1>
+        <h2><strong>Nejlevnější</strong> kočkoholky v Praze za <strong>férovou</strong> cenu.</h2>
+        
+        <div class="row">
+          <div class="d-none d-sm-block col-sm-6">
+            <img id="obr01" src="https://placecats.com/200/200" alt="dummy img" class="w-100">
+          </div>
+          <div class="col-12 col-sm-6 col-xl-2">
+            <p>
+                Hledáš dokonalou kočkoholku? Se svou kočkoholkou si můžeš dělat, co chceš, ale za její zdraví neručíme! Každá kočkoholka je unikátní, roztomilá a připravená na různé dobrodružství. Neváhej a pořiď si tu svou, dokud jsou ještě skladem!
+            </p>
+            <button
+              class="btn btn-outline-primary btn-lg"
+              onclick="akce()"
+            >Zmáčkni mě Baby</button>
+
+            
+ 
+
+          </div>
+        </div>
+
+        <div class="row" style="font-size: 100px;">
+          <div class="col-12 col-sm text-center">
+            <i class="bi bi-emoji-heart-eyes-fill"></i>
+          </div>
+          <div class="col-12 col-sm text-center">
+            <i class="bi bi-bag-heart"></i>
+          </div>
+          <div class="col-12 col-sm text-center">
+            <i class="bi bi-currency-dollar"></i>
+          </div>
+        </div>
+
+        <div style="height: 200px;">
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-sm-6">
+                <div class="card">
+                    <img src="https://image.tensorartassets.com/cdn-cgi/image/anim=true,plain=false,w=2048,f=jpeg,q=85/posts/images/617620162908136103/66fc4bb1-8c35-4826-ae41-0900466ff2ed.jpg" class="card-img-top" alt="Byt 1" height="600" >
+                    <div class="card-body">
+                      <h5 class="card-title">Fakkin Shlapca
+                        <strong>5500 kč / kus</strong>
+                    </h5>
+                      <p class="card-text">Veselá a krásná Schlapca připravená k prodeji.</p>
+                      <a href="https://www.mind.org.uk/information-support/guides-to-support-and-services/seeking-help-for-a-mental-health-problem/where-to-start/" class="btn btn-primary">Bližší popis</a>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="card">
+                <img src="https://image.tensorartassets.com/cdn-cgi/image/anim=true,plain=false,w=2048,f=jpeg,q=85/posts/images/623444808576428624/47cd684d-3ec2-44b8-8033-cdc320222441.jpg" class="card-img-top" alt="karta 2" height="600" >
+                <div class="card-body">
+                  <h5 class="card-title">Thupa Minja
+                    <strong>7500 kč / kus</strong>
+                  </h5>
+                  <p class="card-text">Nevinná a mladá Minja je připravená k prodeji.</p>
+                  <a href="https://www.mind.org.uk/information-support/guides-to-support-and-services/seeking-help-for-a-mental-health-problem/where-to-start/" class="btn btn-primary">Bližší popis</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div style="height: 500px;">
+        </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
 </html>
